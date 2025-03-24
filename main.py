@@ -4,8 +4,8 @@ import re
 genomes_dir = "genomes"
 repeats_dir = "repeats"
 results_dir = "results"
-species_dir = "beet"
-genomes_amount = 9
+species_dir = "test"
+genomes_amount = 2
 
 def find_and_write_fragment_positions(gene_record, fragment_records):
     """ Функция ищет фрагменты в гене и записывает результаты в соответствующие файлы. :param gene_record: запись гена :param fragment_records: список записей фрагментов """
