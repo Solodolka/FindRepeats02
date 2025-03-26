@@ -4,7 +4,7 @@ import re
 genomes_dir = "genomes"
 repeats_dir = "repeats"
 results_dir = "results"
-species_dir = "test"
+species_dir = "beet"
 genomes_amount = 2
 
 def find_and_write_fragment_positions(gene_record, fragment_records):
@@ -26,7 +26,7 @@ def find_and_write_fragment_positions(gene_record, fragment_records):
             start_index = position + 1
 
         if positions:
-            print(f"Фрагмент {fragment_id} найден в гене {gene_id} на позициях {positions}")
+            print(f"Фрагмент {fragment_id} найден в хромосоме {gene_id} на позициях {positions}")
 
             # Создаем файл для вывода результатов
             fragment_filename = re.sub(r'\W+', '', fragment_id)
@@ -48,7 +48,7 @@ def find_and_write_fragment_positions(gene_record, fragment_records):
                     # Записываем результат в файл
                     output_file.write(header + '\n' + str(context) + '\n')
         else:
-            print(f"Фрагмент {fragment_id} не найден в гене {gene_id}")
+            print(f"Фрагмент {fragment_id} не найден в хромосоме {gene_id}")
 
 
 # Чтение файла с фрагментами
@@ -62,8 +62,8 @@ for file_num in range(1, genomes_amount+1):
     try:
         gene_record = next(SeqIO.parse(gene_path, "fasta"))
     except:
-        raise ValueError(f"Gene reading erroe in {gene_path}")
-    print(f"Gene {gene_path} is loaded")
+        raise ValueError(f"Chromosome reading erroe in {gene_path}")
+    print(f"Chromosome {gene_path} is loaded")
 
     # Поиск и запись результатов
     find_and_write_fragment_positions(gene_record, fragment_records)
